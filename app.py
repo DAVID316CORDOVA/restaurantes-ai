@@ -17,11 +17,7 @@ try:
     GOOGLE_KEY = st.secrets["GOOGLE_KEY"]
     OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 except:
-    # Fallback para desarrollo local sin secrets
-    MONGO_URI = "mongodb+srv://topicos_user:vt2GV4Q75YFJrVpR@puj-topicos-bd.m302xsg.mongodb.net/?retryWrites=true&w=majority&appName=puj-topicos-bd"
-    GOOGLE_KEY = "AIzaSyAEsfwqS_pvzrJRFisamgisVvcVY6UUJ_s"
-    OPENAI_API_KEY = "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"
-
+    print("no hay keys")
 DATABASE_NAME = "restaurantes_bogota_db"
 COLLECTION_NAME = "bogota_data"
 
