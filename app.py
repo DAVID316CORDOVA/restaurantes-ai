@@ -83,7 +83,7 @@ def extract_coordinates(row):
         return None, None
 
 
-def filter_nearby(lat, lng, df, max_m=10000):
+def filter_nearby(lat, lng, df, max_m=2000):
     distances = []
     valid_coords = []
     
@@ -284,15 +284,15 @@ if addr:
         user_lat, user_lng = get_coordinates(addr)
 
     if user_lat and user_lng:
-        st.success(f"✅ Ubicación encontrada")
+        st.success(f" Ubicación encontrada")
         
         with st.spinner("Buscando restaurantes cercanos..."):
-            nearby = filter_nearby(user_lat, user_lng, df, max_m=10000)
+            nearby = filter_nearby(user_lat, user_lng, df, max_m=2000)
 
         if len(nearby) == 0:
-            st.warning("⚠️ No se encontraron restaurantes en un radio de 10km")
+            st.warning(" No se encontraron restaurantes en un radio de 2 km")
         else:
-            st.info(f"📍 Se encontraron {len(nearby)} restaurantes en un radio de 10km")
+            st.info(f" Se encontraron {len(nearby)} restaurantes en un radio de 2 km")
             
             # ---- MAPA ----
             st.subheader("🗺️ Mapa de Restaurantes")
@@ -302,7 +302,7 @@ if addr:
             # Marcador de usuario (ROJO)
             folium.Marker(
                 [user_lat, user_lng],
-                tooltip="📍 Tu ubicación",
+                tooltip=" Tu ubicación",
                 icon=folium.Icon(color="red", icon="home", prefix='fa')
             ).add_to(m)
 
@@ -333,7 +333,7 @@ if addr:
             st.markdown(summary)
 
             # ---- TABLA ----
-            st.subheader("📍 Detalle de Restaurantes")
+            st.subheader(" Detalle de Restaurantes")
             
             # Preparar datos para mostrar
             display_data = []
